@@ -16,8 +16,14 @@ const navigation = [
 export default function Header() {
   const pathname = usePathname()
 
+  const hideRoutes = ["/login", "/signup"];
+  
+    if (hideRoutes.includes(pathname)) {
+      return null
+    }
+
   return (
-    <header className="bg-gray-900 text-white">
+    <header className="fixed w-full bg-gray-900 text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           <div className="flex items-center">

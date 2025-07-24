@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select"
 import { Users, Building } from "lucide-react"
 import Link from "next/link"
+import { ArrowLeft } from "lucide-react";
 
 export default function SignUpPage() {
   const [jobSeekerData, setJobSeekerData] = useState({
@@ -54,6 +55,12 @@ export default function SignUpPage() {
 
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
+      <div className="absolute top-4 left-4">
+        <Link href="/" className="flex items-center gap-1 text-black hover:underline ">
+          <ArrowLeft className="w-4 h-4" />
+          <span>Go Back</span>
+        </Link>
+      </div>
       {/* Left - Signup Form */}
       <div className="flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl w-full">

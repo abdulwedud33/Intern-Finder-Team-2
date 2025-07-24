@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
 import { Checkbox } from "@/components/ui/checkbox"
 import Link from "next/link"
+import { ArrowLeft } from "lucide-react";
 
 export default function LoginPage() {
   const [formData, setFormData] = useState({
@@ -21,6 +22,12 @@ export default function LoginPage() {
 
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-2">
+      <div className="absolute top-4 left-4">
+        <Link href="/" className="flex items-center gap-1 text-black hover:underline ">
+          <ArrowLeft className="w-4 h-4" />
+          <span>Go Back</span>
+        </Link>
+      </div>
       {/* Left - Form */}
       <div className="flex items-center justify-center bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-md w-full">
