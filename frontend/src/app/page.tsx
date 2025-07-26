@@ -5,6 +5,15 @@ import { Badge } from "@/components/ui/badge"
 import { Search, MapPin, Star, ArrowRight } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
+import briefCase from "../../public/images/briefcase(2) 2.png";
+import building from "../../public/images/building 1.png";
+import g2081 from "../../public/images/g2081.png";
+import vector from "../../public/images/Vector.png";
+import logo1 from "../../public/images/logo(1).png";
+import logo2 from "../../public/images/logo(2).png";
+import logo from "../../public/images/logo.png";
+import logos from "../../public/images/logos.png";
+
 
 const featuredJobs = [
   {
@@ -109,17 +118,22 @@ export default function Homepage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gray-900 text-white py-20">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Find Your Dream Job Today!</h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-              connecting talent with opportunity: your gateway to career success.
-            </p>
+      <section className="relative bg-[url('/images/hero-section-bg.jpg')] bg-cover bg-center h-screen text-white">
+  {/* Dark overlay */}
+  <div className="absolute inset-0 bg-black/80"></div>
 
-            {/* Search Bar */}
-            <div className="bg-white rounded-lg shadow-lg p-6 max-w-4xl mx-auto">
-              <div className="flex flex-col md:flex-row gap-4">
+  <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 flex flex-col justify-center items-center h-full">
+    {/* Heading */}
+    <h1 className="text-4xl md:text-6xl font-bold mb-4 text-center">
+      Find Your Dream Job Today!
+    </h1>
+    <p className="text-lg text-gray-300 text-center max-w-2xl mb-8">
+      Connecting Talent with Opportunity: Your Gateway to Career Success
+    </p>
+
+    {/* Search Bar */}
+    <div className="bg-white rounded-lg shadow-lg p-2 max-w-4xl mx-auto flex flex-col md:flex-row gap-4 items-center w-full mb-10">
+      <div className="flex flex-col md:flex-row gap-4">
                 <div className="flex-1 relative">
                   <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input placeholder="Job title, keywords, or company" className="pl-10 h-12 text-gray-900" />
@@ -127,25 +141,60 @@ export default function Homepage() {
                 <div className="flex-1 relative">
                   <MapPin className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
                   <Input placeholder="Location" className="pl-10 h-12 text-gray-900" />
-                </div>
+              </div>
+              <div className="flex-1">
+                <Input
+        placeholder="Select Category"
+        className="flex-1 px-4 py-3 rounded-full border border-gray-300 text-black focus:outline-none"
+      />
+              </div>
                 <Button className="h-12 px-8 bg-teal-500 hover:bg-teal-600">Search Jobs</Button>
-              </div>
-            </div>
+    </div>
+    </div>
 
-            {/* Popular Searches */}
-            <div className="mt-6">
-              <p className="text-gray-400 mb-3">Popular Searches:</p>
-              <div className="flex flex-wrap justify-center gap-2">
-                {["Designer", "Developer", "Web", "IOS", "PHP", "Senior", "Engineer"].map((term) => (
-                  <Badge key={term} variant="secondary" className="bg-gray-800 text-gray-300 hover:bg-gray-700">
-                    {term}
-                  </Badge>
-                ))}
+    {/* Stats */}
+    <div className="flex flex-wrap justify-center gap-10 text-center mb-10">
+      <div className="flex flex-row items-center gap-2">
+              <div className="flex items-center justify-center bg-teal-400 rounded-full p-1">
+                <Image src={briefCase} alt="Briefcase Icon" width={24} height={24} className="bg-teal-400 m-3 rounded-xl" />
+                </div>
+              <div className="text-white flex flex-col">
+              <span className="text-white text-xl">25,000</span>
+                <span className="text-white">jobs</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+            <div className="flex flex-row items-center gap-2">
+              <div className="flex items-center justify-center bg-teal-400 rounded-full p-1">
+                <Image src={building} alt="Building Icon" width={24} height={24} className="bg-teal-400 m-3 rounded-xl" />
+              </div>
+              <div className="text-white flex flex-col">
+                <span className="text-white text-xl">1,000</span>
+                <span className="text-white">companies</span>
+              </div>             
+            </div>
+            <div className="flex flex-row items-center gap-2">
+              <div className="flex items-center justify-center bg-teal-400 rounded-full p-1">
+                <Image src={g2081} alt="G2081 Icon" width={24} height={24} className="bg-teal-400 m-3 rounded-xl" />
+              </div>
+              <div className="text-white flex flex-col">
+                <span className="text-white text-xl">100,000</span>
+                <span className="text-white">users</span>
+              </div>
+            </div>
+    </div>
+  </div>
+
+  {/* Logos */}
+  <div className="absolute bottom-0 w-full bg-black py-4 px-6">
+    <div className="flex flex-wrap justify-evenly gap-8 items-center">
+      <Image src={vector} alt="Spotify" width={100} height={40} />
+      <Image src={logo1} alt="Slack" width={100} height={40} />
+      <Image src={logo2} alt="Adobe" width={100} height={40} />
+      <Image src={logo} alt="Asana" width={100} height={40} />
+      <Image src={logos} alt="Linear" width={100} height={40} />
+    </div>
+  </div>
+</section>
 
       {/* Featured Jobs */}
       <section className="py-16 bg-white">
